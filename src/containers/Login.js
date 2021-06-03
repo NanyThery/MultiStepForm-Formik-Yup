@@ -17,7 +17,7 @@ const Login = () => {
   };
   return (
     <Container>
-      <LoginBox onClick={handleLoginSubmit} />
+      <LoginBox onSendData={handleLoginSubmit} />
     </Container>
   );
 };

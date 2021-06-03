@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Login from "./containers/Login";
 import MainContainer from "./containers/MainContainer";
 import ErrorContainer from "./containers/ErrorContainer";
