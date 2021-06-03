@@ -5,21 +5,28 @@ import ErrorContainer from "./containers/ErrorContainer";
 import AuthRoute from "./routes/AuthRoute";
 import PublicRoute from "./routes/PublicRoute";
 import PATHS from "./routes/paths";
+import GlobalStyles from "./components/GlobalStyles";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
+  const { isLoading, isAuthenticated, logout } = useAuth0();
+
   return (
     <div>
-      <Router>
-        <Switch>
-          <PublicRoute path={PATHS.login} component={Login} />
+      <GlobalStyles />
+      <Switch>
+        <PublicRoute path={PATHS.login} component={Login} />
+        {!isLoading && (
           <AuthRoute
+            isAuthenticated={isAuthenticated}
             exact
+            onLogOut={logout}
             path={PATHS.base}
             component={MainContainer}
           ></AuthRoute>
-          <PublicRoute component={ErrorContainer} />
-        </Switch>
-      </Router>
+        )}
+        <PublicRoute component={ErrorContainer} />
+      </Switch>
     </div>
   );
 }

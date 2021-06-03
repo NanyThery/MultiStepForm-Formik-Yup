@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import LoginBox from "../components/Login/LoginBox";
 import { colors } from "../themeVariables";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Container = styled.div`
   display: flex;
@@ -12,12 +13,15 @@ const Container = styled.div`
 `;
 
 const Login = () => {
-  const handleLoginSubmit = (data) => {
-    console.log(data);
+  const { loginWithRedirect } = useAuth0();
+
+  const handleLoginSubmit = () => {
+    loginWithRedirect();
   };
+
   return (
     <Container>
-      <LoginBox onSendData={handleLoginSubmit} />
+      <LoginBox onClick={handleLoginSubmit} />
     </Container>
   );
 };

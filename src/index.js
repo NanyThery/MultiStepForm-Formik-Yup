@@ -1,12 +1,14 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import ReactDOM from "react-dom";
 import App from "./App";
-import GlobalStyles from "./components/GlobalStyles";
+import Auth0ProviderWithHistory from "./auth/Auth0ProviderWithHistory";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <GlobalStyles />
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Auth0ProviderWithHistory>
+      <App />
+    </Auth0ProviderWithHistory>
+  </Router>,
   document.getElementById("root")
 );

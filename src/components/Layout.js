@@ -43,12 +43,12 @@ const ChildrenWrapper = styled.div`
   box-sizing: border-box;
 `;
 
-const Layout = ({ children, onClick = () => {} }) => {
+const Layout = ({ children, onLogOut = () => {} }) => {
   return (
     <Container>
       <NavBarContainer>
         <StyledTitle>Arex Invoice Recorder</StyledTitle>
-        <Input type="button" value="Log Out" onClick={onClick} />
+        <Input type="button" value="Log Out" onClick={onLogOut} />
       </NavBarContainer>
       <ChildrenWrapper>{children}</ChildrenWrapper>
     </Container>
