@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { colors } from "../themeVariables";
+import Logout from "@kiwicom/orbit-components/lib/icons/Logout";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
 const Container = styled.div`
   width: 100%;
@@ -7,28 +8,18 @@ const Container = styled.div`
 `;
 
 const NavBarContainer = styled.div`
-  height: 48px;
+  height: 64px;
   width: 100%;
   display: flex;
   box-sizing: border-box;
-  padding: 4px 12px;
+  padding: 0px 16px;
   justify-content: space-between;
   align-items: center;
-  background-color: ${colors.primary.dark};
+  border-bottom: 1px solid #d2d6dc;
 `;
 
-const Input = styled.input`
-  background-color: transparent;
-  color: white;
-  border-radius: 8px;
-  height: 80%;
-  border: 1px solid ${colors.secondary.main};
-  padding: 5px 8px;
-  cursor: pointer;
-`;
-
-const StyledTitle = styled.h3`
-  color: white;
+const StyledTitle = styled.p`
+  color: #d2d6dc;
   font-size: 16px;
   min-width: 120px;
   overflow: hidden;
@@ -37,18 +28,21 @@ const StyledTitle = styled.h3`
 `;
 
 const ChildrenWrapper = styled.div`
-  padding: 8px 16px;
-  height: calc(100%-48px);
+  height: calc(100vh - 64px);
   width: 100%;
   box-sizing: border-box;
 `;
 
-const Layout = ({ children, onLogOut = () => {} }) => {
+const Layout = ({ children, onLogOut = () => {}, isAuthenticated }) => {
   return (
     <Container>
       <NavBarContainer>
-        <StyledTitle>Arex Invoice Recorder</StyledTitle>
-        <Input type="button" value="Log Out" onClick={onLogOut} />
+        <StyledTitle>Invoice Recorder</StyledTitle>
+        {isAuthenticated && (
+          <ButtonLink onClick={onLogOut}>
+            Log out <Logout />
+          </ButtonLink>
+        )}
       </NavBarContainer>
       <ChildrenWrapper>{children}</ChildrenWrapper>
     </Container>

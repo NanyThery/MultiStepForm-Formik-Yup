@@ -8,7 +8,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: ${`linear-gradient(156deg, ${colors.primary.dark} 0%,  ${colors.primary.light} 100%)`};
 `;
 

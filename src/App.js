@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import Login from "./containers/Login";
 import MainContainer from "./containers/MainContainer";
 import ErrorContainer from "./containers/ErrorContainer";
 import AuthRoute from "./routes/AuthRoute";
-import PublicRoute from "./routes/PublicRoute";
 import PATHS from "./routes/paths";
-import GlobalStyles from "./components/GlobalStyles";
+import GlobalStyles from "./components/Global/GlobalStyles";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Route } from "react-router-dom";
 
 function App() {
   const { isLoading, isAuthenticated, logout } = useAuth0();
@@ -15,7 +15,7 @@ function App() {
     <div>
       <GlobalStyles />
       <Switch>
-        <PublicRoute path={PATHS.login} component={Login} />
+        <Route path={PATHS.login} component={Login} />
         {!isLoading && (
           <AuthRoute
             isAuthenticated={isAuthenticated}
@@ -25,7 +25,7 @@ function App() {
             component={MainContainer}
           ></AuthRoute>
         )}
-        <PublicRoute component={ErrorContainer} />
+        <Route component={ErrorContainer} />
       </Switch>
     </div>
   );

@@ -1,6 +1,6 @@
 import { Redirect, Route } from "react-router-dom";
 import PATHS from "./paths";
-import Layout from "../components/Layout";
+import Layout from "../components/Global/Layout";
 
 const AuthRoute = ({
   component: Component,
@@ -15,7 +15,7 @@ const AuthRoute = ({
         !isAuthenticated ? (
           <Redirect to={PATHS.login} />
         ) : (
-          <Layout onLogOut={onLogOut}>
+          <Layout isAuthenticated={isAuthenticated} onLogOut={onLogOut}>
             <Component {...props} />
           </Layout>
         )
