@@ -6,4 +6,5 @@ export const colors = {
   secondary: {
     main: "#82d4f3",
   },
+  background: "#f7f8fb",
 };

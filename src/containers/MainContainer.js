@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { colors } from "../themeVariables";
-import Form from "../components/Form/Form";
+
+import FormWrapper from "../components/Form/FormWrapper";
 
 const Container = styled.div`
   width: 100%;
@@ -8,13 +8,13 @@ const Container = styled.div`
   display: flex;
   flex-flow: column;
   justify-content: center;
-  background-color: ${colors.background};
+  align-items: center;
 `;
 
 const MainContainer = () => {
   return (
     <Container>
-      <Form></Form>
+      <FormWrapper />
     </Container>
   );
 };

@@ -14,9 +14,10 @@ function App() {
   return (
     <div>
       <GlobalStyles />
-      <Switch>
-        <Route path={PATHS.login} component={Login} />
-        {!isLoading && (
+      {!isLoading && (
+        <Switch>
+          <Route path={PATHS.login} component={Login} />
+
           <AuthRoute
             isAuthenticated={isAuthenticated}
             exact
@@ -24,9 +25,10 @@ function App() {
             path={PATHS.base}
             component={MainContainer}
           ></AuthRoute>
-        )}
-        <Route component={ErrorContainer} />
-      </Switch>
+
+          <Route component={ErrorContainer} />
+        </Switch>
+      )}
     </div>
   );
 }
