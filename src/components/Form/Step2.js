@@ -33,6 +33,7 @@ const Step1 = ({ formik }) => {
         id="currency"
         name="currency"
         label="Currency"
+        placeholder="Select currency"
         onChange={handleChange}
         value={values.currency}
       />
