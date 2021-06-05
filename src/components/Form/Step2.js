@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Select from "@kiwicom/orbit-components/lib/Select";
 import FormattedInput from "./FormattedInput";
 import InputFile from "@kiwicom/orbit-components/lib/InputFile";
+import { ErrorMessage } from "formik";
 
 const Container = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const Container = styled.div`
   gap: 16px;
 `;
 const Step1 = ({ formik }) => {
-  const { handleChange, values } = formik;
+  const { handleChange, values, errors } = formik;
 
   const handleFileUpload = (e) => {
     formik.setFieldValue("file", e.currentTarget.files[0]);
@@ -45,10 +46,10 @@ const Step1 = ({ formik }) => {
       <InputFile
         allowedFileTypes=".pdf"
         type={"file"}
-        label="Upload Invoice"
+        label="Upload Invoice PDF"
         fileName={values.file.name ? values.file.name : ""}
         onRemoveFile={handleRemoveFile}
-        help={"Only pdf files"}
+        error={errors.file}
         onChange={handleFileUpload}
         value={values.file}
       ></InputFile>

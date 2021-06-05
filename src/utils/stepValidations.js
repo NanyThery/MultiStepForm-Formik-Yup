@@ -11,7 +11,6 @@ const validationStep0 = Yup.object({
 });
 
 const validationStep1 = Yup.object({
-  invoiceNum: Yup.string().required("Required"),
   dueDate: Yup.date().test(
     "valid-due",
     "Cannot be earlier than today",
@@ -25,9 +24,13 @@ const validationStep1 = Yup.object({
 });
 
 const validationStep2 = Yup.object({
-  currency: Yup.string().required("Required"),
-  amount: Yup.number().required("Required"),
-  file: Yup.mixed().required("Upload invoice"),
+  file: Yup.mixed()
+    .required("Upload invoice")
+    .test(
+      "fileType",
+      "Only pdf files supported",
+      (value) => value && value.type === "application/pdf"
+    ),
 });
 
 const validateStep0 = (values, errors) => {
