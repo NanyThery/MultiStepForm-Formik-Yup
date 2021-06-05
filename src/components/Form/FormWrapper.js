@@ -15,6 +15,7 @@ import {
 } from "../../utils/stepValidations";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Check from "@kiwicom/orbit-components/lib/icons/Check";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 const Container = styled.div`
   width: 550px;
@@ -174,6 +175,7 @@ const FormWrapper = () => {
           >
             {STEP_RENDERS[`step${step}`]}
           </form>
+          <Text size="small">Note: all fields are compulsory</Text>
           <Actions
             nextAllowed={stepValidations(step, values, errors)}
             currentStep={step}

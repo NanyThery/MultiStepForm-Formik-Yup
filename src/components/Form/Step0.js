@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import Select from "@kiwicom/orbit-components/lib/Select";
-import Text from "@kiwicom/orbit-components/lib/Text";
 
 const Container = styled.div`
   display: flex;
@@ -45,7 +44,6 @@ const Step0 = ({ formik }) => {
         onChange={handleChange}
         value={values.country}
       />
-      <Text size="small">Note: All fields are compulsory</Text>
     </Container>
   );
 };

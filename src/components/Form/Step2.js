@@ -2,21 +2,20 @@ import styled from "styled-components";
 import Select from "@kiwicom/orbit-components/lib/Select";
 import FormattedInput from "./FormattedInput";
 import InputFile from "@kiwicom/orbit-components/lib/InputFile";
-import { ErrorMessage } from "formik";
 
 const Container = styled.div`
   display: flex;
   flex-flow: column;
   gap: 16px;
 `;
-const Step1 = ({ formik }) => {
+const Step2 = ({ formik }) => {
   const { handleChange, values, errors } = formik;
 
   const handleFileUpload = (e) => {
     formik.setFieldValue("file", e.currentTarget.files[0]);
   };
 
-  const handleRemoveFile = (e) => {
+  const handleRemoveFile = () => {
     formik.setFieldValue("file", "");
   };
 
@@ -57,4 +56,4 @@ const Step1 = ({ formik }) => {
   );
 };
 
-export default Step1;
+export default Step2;

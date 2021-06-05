@@ -38,11 +38,10 @@ const ErrorContainer = () => {
   };
   return (
     <Container>
-      {" "}
       <MessageContainer>
         <h1>This page doesn't exist</h1>
         <Button onClick={handleClick}>Go back home</Button>
-      </MessageContainer>{" "}
+      </MessageContainer>
     </Container>
   );
 };
