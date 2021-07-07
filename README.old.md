@@ -1,2 +1,0 @@
-# ArexTest
-Frontend Challenge
